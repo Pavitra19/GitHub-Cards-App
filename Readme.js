@@ -1,10 +1,6 @@
 import React from "react";
 
-const testData = [
-    { name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook" },
-    { name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu" },
-    { name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook" },
-];
+//GitHub usernames: gaearon, sophiebits, sebmarkbage, bvaughn
 
 const CardList = (props) => (
 
@@ -17,7 +13,6 @@ class Card extends React.Component {
     render() {
         const profile = this.props;
         return (
-
             <div className="github-profile">
                 <img src={profile.avatar_url} />
                 <div className="info">
@@ -59,7 +54,7 @@ class Form extends React.Component {
 class App extends React.Component {
 
     state = {
-        profiles: testData,
+        profiles: [],
     };
 
     addNewProfile = (profileData) => {this.setState(prevState => ({
@@ -71,7 +66,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className="header">{this.props.title}</div>
-                <Form />
+                <Form onSubmit={this.addNewProfile} />
                 <CardList profiles={this.state.profiles} />
             </div>
         );
