@@ -32,8 +32,9 @@ class Card extends React.Component {
 class Form extends React.Component {
     state = {userName: ''};
     handleSubmit = (event) => {
-
-
+        
+        //so page won't refresh on submit
+        event.preventDefault();
         console.log(this.state.userName);
     };
 
