@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 
 const testData = [
     {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
