@@ -31,11 +31,13 @@ class Card extends React.Component {
 
 class Form extends React.Component {
     state = {userName: ''};
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         
         //so page won't refresh on submit
         event.preventDefault();
-        console.log(this.state.userName);
+        const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
+        this.props.onSubmit(resp.data);
+        this.setState({ userName: ''});
     };
 
     render() {
